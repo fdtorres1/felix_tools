@@ -10,6 +10,7 @@ Complete catalog of all tools in this monorepo.
 | eventkit-calendar | `tools/eventkit-calendar/` | macOS Calendar (EventKit) | Swift | ✅ Active |
 | givebutter-cli | `tools/givebutter-cli/` | Givebutter nonprofit fundraising | Python | ✅ Active |
 | google-calendar-cli | `tools/google-calendar-cli/` | Google Calendar management | Python | ✅ Active |
+| handwrytten-cli | `tools/handwrytten-cli/` | Handwrytten handwritten cards | Python | ✅ Active |
 | google-contacts-cli | `tools/google-contacts-cli/` | Google Contacts management | Python | ✅ Active |
 | google-docs-cli | `tools/google-docs-cli/` | Google Docs operations | Python | ✅ Active |
 | google-gmail-cli | `tools/google-gmail-cli/` | Gmail with scheduled sends | Python | ✅ Active |
@@ -73,6 +74,22 @@ gcal.py events create --calendar primary --summary 'Meeting' --start 2025-01-15T
 
 # Bulk create from file
 gcal.py events bulk-create --file events.jsonl --dry-run
+```
+
+### Handwrytten CLI
+
+```bash
+# List available cards
+handwrytten.py cards list --with-images
+
+# List fonts (handwriting styles)
+handwrytten.py fonts list
+
+# Send a card
+handwrytten.py orders send --card-id 3404 --message 'Dear John,\n\nThank you!' --wishes 'Best regards' --recipient-name 'John Doe' --recipient-address1 '123 Main St' --recipient-city 'Phoenix' --recipient-state 'AZ' --recipient-zip '85001'
+
+# Get order status
+handwrytten.py orders get --order-id 12345
 ```
 
 ### Google Contacts CLI
@@ -181,6 +198,9 @@ CLICKUP_API_TOKEN=your-token
 
 # Givebutter
 GIVEBUTTER_API_KEY=your-api-key
+
+# Handwrytten
+HANDWRYTTEN_API_KEY=your-api-key
 
 # Linear
 LINEAR_AGENT_TOKEN=lin_oauth_...
