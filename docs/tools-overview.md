@@ -8,6 +8,7 @@ Complete catalog of all tools in this monorepo.
 |------|------|-------------|----------|--------|
 | clickup-cli | `tools/clickup-cli/` | ClickUp task management | Python | ✅ Active |
 | eventkit-calendar | `tools/eventkit-calendar/` | macOS Calendar (EventKit) | Swift | ✅ Active |
+| givebutter-cli | `tools/givebutter-cli/` | Givebutter nonprofit fundraising | Python | ✅ Active |
 | google-calendar-cli | `tools/google-calendar-cli/` | Google Calendar management | Python | ✅ Active |
 | google-contacts-cli | `tools/google-contacts-cli/` | Google Contacts management | Python | ✅ Active |
 | google-docs-cli | `tools/google-docs-cli/` | Google Docs operations | Python | ✅ Active |
@@ -43,6 +44,22 @@ ekcal events list --today --calendars 'Personal,Work'
 
 # Send daily digest to Telegram
 ekcal digest --day today
+```
+
+### Givebutter CLI
+
+```bash
+# List campaigns
+givebutter.py campaigns list
+
+# List transactions with all pages
+givebutter.py transactions list --all-pages --format csv
+
+# Create offline donation (record-keeping)
+givebutter.py transactions create --campaign CODE --method check --amount 100 --first-name 'Jane' --email 'jane@example.com' --dry-run
+
+# Bulk import from JSONL
+givebutter.py transactions import donations.jsonl --campaign CODE --dry-run
 ```
 
 ### Google Calendar CLI
@@ -161,6 +178,9 @@ GOOGLE_OAUTH_REFRESH_TOKEN=your-refresh-token
 
 # ClickUp
 CLICKUP_API_TOKEN=your-token
+
+# Givebutter
+GIVEBUTTER_API_KEY=your-api-key
 
 # Linear
 LINEAR_AGENT_TOKEN=lin_oauth_...
