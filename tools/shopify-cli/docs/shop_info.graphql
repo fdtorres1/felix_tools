@@ -1,0 +1,3 @@
+query {
+  shop { name myshopifyDomain }
+}
